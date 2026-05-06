@@ -23,11 +23,10 @@ function InstagramIcon() {
 }
 
 const links = [
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#about" },
   { label: "Services", href: "/services" },
   { label: "Menu", href: "/menu" },
-  { label: "Hours", href: "/hours" },
-  { label: "Find Us", href: "/find-us" },
+  { label: "Find Us", href: "/#find-us" },
 ];
 
 export default function Nav() {
@@ -49,19 +48,21 @@ export default function Nav() {
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
-          <Image
-            src="/logo.jpg"
-            alt="High Tide Cafe"
-            width={56}
-            height={56}
-            className="rounded-full object-cover"
-          />
-        </Link>
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center">
+        {/* Logo — left, flex-1 so it matches social width on the right */}
+        <div className="flex-1 flex items-center">
+          <Link href="/">
+            <Image
+              src="/logo.jpg"
+              alt="High Tide Cafe"
+              width={56}
+              height={56}
+              className="rounded-full object-cover"
+            />
+          </Link>
+        </div>
 
-        {/* Desktop links */}
+        {/* Desktop links — truly centered */}
         <ul className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <li key={link.href}>
@@ -74,31 +75,33 @@ export default function Nav() {
               </Link>
             </li>
           ))}
-          <li className="flex items-center gap-3 pl-4 border-l border-[#F8D9D4]/20">
-            <a
-              href="https://www.facebook.com/HighTideCafeSemaphore/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-[#F8D9D4] opacity-70 hover:opacity-100 transition-opacity"
-            >
-              <FacebookIcon />
-            </a>
-            <a
-              href="https://www.instagram.com/high_tide_semaphore/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-[#F8D9D4] opacity-70 hover:opacity-100 transition-opacity"
-            >
-              <InstagramIcon />
-            </a>
-          </li>
         </ul>
+
+        {/* Social icons — right, flex-1 justify-end to balance logo */}
+        <div className="flex-1 hidden md:flex items-center justify-end gap-3">
+          <a
+            href="https://www.facebook.com/HighTideCafeSemaphore/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="text-[#F8D9D4] opacity-70 hover:opacity-100 transition-opacity"
+          >
+            <FacebookIcon />
+          </a>
+          <a
+            href="https://www.instagram.com/high_tide_semaphore/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-[#F8D9D4] opacity-70 hover:opacity-100 transition-opacity"
+          >
+            <InstagramIcon />
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#F8D9D4] p-1"
+          className="md:hidden text-[#F8D9D4] p-1 ml-auto"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >

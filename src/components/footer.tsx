@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import WaveDivider from "@/components/wave-divider";
 
 function FacebookIcon() {
   return (
@@ -21,22 +22,8 @@ function InstagramIcon() {
 export default function Footer() {
   return (
     <footer className="bg-[#324740] text-[#F8D9D4]">
-      {/* Wave top */}
-      <div className="w-full overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1440 60"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="w-full h-12 md:h-16 block"
-          style={{ marginBottom: "-2px" }}
-        >
-          <path
-            d="M0,30 C240,60 480,0 720,30 C960,60 1200,10 1440,30 L1440,60 L0,60 Z"
-            fill="#FEF8F4"
-          />
-        </svg>
-      </div>
-
+      {/* Wave from cream Find Us into green footer */}
+      <WaveDivider bg="#FEF8F4" fill="#324740" />
       <div className="max-w-6xl mx-auto px-6 pt-4 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
@@ -51,7 +38,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm opacity-80 leading-relaxed max-w-xs">
-              Coastal coffee and good vibes, right on the Semaphore esplanade.
+              Coffee that grounds you. Food that lifts you.
             </p>
             <div className="flex gap-4 mt-2">
               <a
@@ -82,11 +69,10 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-3">
               {[
-                { label: "About", href: "/about" },
+                { label: "About", href: "/#about" },
                 { label: "Services", href: "/services" },
                 { label: "Menu", href: "/menu" },
-                { label: "Hours", href: "/hours" },
-                { label: "Find Us", href: "/find-us" },
+                { label: "Find Us", href: "/#find-us" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -122,12 +108,18 @@ export default function Footer() {
                 <Phone size={16} className="shrink-0 text-[#F8D9D4]" />
                 <span>(08) 8449 0000</span>
               </li>
+              <li className="flex gap-3 items-center">
+                <Mail size={16} className="shrink-0 text-[#F8D9D4]" />
+                <a href="mailto:hello@hightidecafe.com.au" className="hover:opacity-100 transition-opacity">
+                  hello@hightidecafe.com.au
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs opacity-50">
-          &copy; {new Date().getFullYear()} High Tide Cafe Semaphore. All rights reserved.
+          &copy; 2019 High Tide Cafe Semaphore. All rights reserved.
         </div>
       </div>
     </footer>
