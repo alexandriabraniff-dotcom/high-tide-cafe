@@ -58,6 +58,12 @@ export default function RootLayout({
       className={`${fraunces.variable} ${dmSans.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-[#FEF8F4] antialiased">
+        <div className="bg-[#324740] text-[#F8D9D4] text-center text-xs py-2 px-4">
+          Website created by <strong>Alexandria Braniff</strong> &mdash;{" "}
+          <a href="mailto:alexandriabraniff@gmail.com" className="underline hover:opacity-80">
+            alexandriabraniff@gmail.com
+          </a>
+        </div>
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
